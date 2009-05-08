@@ -27,7 +27,7 @@
         $('#nickname').show().focus();
       });
       $('#nickname').blur(function() {
-        $.cookie('skip-talk.nickname', $(this).val(), {expires: 1});
+        $.cookie('skip-talk.nickname', $(this).val(), {expires: 7});
         $('#nickname_value').html($(this).val());
         $('#change_nickname').show();
         $(this).hide();
@@ -36,6 +36,7 @@
         var message_content = $('#message_content').val();
         var nickname = $.cookie('skip-talk.nickname');
         $('#message_content').val(nickname + ':' + message_content);
+        $.cookie('skip-talk.nickname', nickname, {expires: 7});
       });
     });
 
